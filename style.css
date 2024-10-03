@@ -1,0 +1,106 @@
+@font-face {
+    font-family: WorkSans;
+    src: url('./assets/fonts/WorkSans-VariableFont_wght.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --page-background: hsl(275, 100%, 97%);
+    --faq-container: hsl(0, 0%, 100%);
+    --card-shadow: hsl(292, 16%, 49%);
+    --main-text-color: hsl(292, 42%, 14%);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--page-background);
+    color: var(--main-text-color);
+    font-size: 16px;
+    font-family: WorkSans;
+}
+
+picture {
+    width: 100%;
+}
+
+picture img {
+    width: 100%;
+}
+
+div.faq-container {
+    max-width: 470px;
+    padding: 40px 30px;
+    margin: 0 20px;
+    margin-top: -150px;
+    border-radius: 15px;
+    background-color: var(--faq-container);
+    box-shadow: 0px 0px 23px -12px var(--card-shadow);
+}
+
+section.faq-title-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+section.faq-title-section h1 {
+    margin-left: 20px;
+    font-size: 50px;
+}
+
+section.content-container .questions-container:not(:last-child) {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--page-background);
+}
+
+section.content-container .questions-container h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: inherit;
+    font-weight: 600;
+}
+
+section.content-container .questions-container h2 span {
+    position: relative;
+}
+
+section.content-container .questions-container .answer.show {
+    display: block;
+}
+
+section.content-container .questions-container h2 span img {
+    position: relative;
+    margin-left: 10px;
+    display: block;
+    cursor: pointer;
+    background-color: var(--faq-container);
+}
+
+section.content-container .questions-container h2 span img.hide {
+    opacity: 0;
+}
+
+section.content-container .questions-container h2 span:before {
+    content: url(./assets/images/icon-minus.svg);
+    position: absolute;
+    left: 10px;
+}
+
+section.content-container .questions-container p {
+    display: none;
+    margin-top: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--card-shadow);
+}
+
+.attribution { font-size: 11px; text-align: center; margin-top: 50px}
+.attribution a { color: hsl(228, 45%, 44%); }
