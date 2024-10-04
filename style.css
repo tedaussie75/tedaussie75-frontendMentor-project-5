@@ -1,106 +1,188 @@
-@font-face {
-    font-family: WorkSans;
-    src: url('./assets/fonts/WorkSans-VariableFont_wght.ttf');
-}
-
 * {
     margin: 0;
     padding: 0;
 }
 
 :root {
-    --page-background: hsl(275, 100%, 97%);
-    --faq-container: hsl(0, 0%, 100%);
-    --card-shadow: hsl(292, 16%, 49%);
-    --main-text-color: hsl(292, 42%, 14%);
+    --white-background: hsl(0, 0%, 100%);
+    --box-shadow-color: hsl(221, 100%, 96%);
+    --result-gradient : hsl(241, 81%, 54%);
+    --button-background: hsl(224, 30%, 27%);
+    --light-red: hsla(0, 100%, 67%);
+    --light-orangey: hsla(39, 100%, 56%);
+    --light-green: hsl(166, 100%, 37%);
+    --light-blue: hsl(234, 85%, 45%);
+    --background-badge-1: hsla(0, 100%, 67%, 0.100);
+    --background-badge-2: hsla(39, 100%, 56%, 0.100);
+    --background-badge-3: hsl(166, 100%, 37%, 0.100);
+    --background-badge-4: hsl(234, 85%, 45%, 0.100);
 }
 
 body {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--white-background);
+    font-family: "Hanken Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+div.result-card {
+    display: flex;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0px 7px 22px 7px var(--box-shadow-color);
+}
+
+div.result-card section.result {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--page-background);
-    color: var(--main-text-color);
-    font-size: 16px;
-    font-family: WorkSans;
+    justify-content: center;
+    padding: 30px;
+    flex: 1;
+    border-radius: 20px;
+    background-image: linear-gradient(180deg, hsla(251, 97%, 62%, 1),  hsl(241, 81%, 54%) 100%);
 }
 
-picture {
-    width: 100%;
+div.result-card section.result .result-title,
+div.result-card section.result .result-score span:last-of-type,
+div.result-card section.result .result-grade-text,
+div.result-card section.summary .summary-badge p:last-child span {
+    color: #bfc5ca;
 }
 
-picture img {
-    width: 100%;
+div.result-card section.result .result-title {
+    font-size: 20px;
+    font-weight: 500;
 }
 
-div.faq-container {
-    max-width: 470px;
-    padding: 40px 30px;
-    margin: 0 20px;
-    margin-top: -150px;
-    border-radius: 15px;
-    background-color: var(--faq-container);
-    box-shadow: 0px 0px 23px -12px var(--card-shadow);
-}
-
-section.faq-title-section {
+div.result-card section.result .result-score {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: 30px 0;
+    line-height: 1;
+    border-radius: 50%;
+    background-image: linear-gradient(180deg, rgb(77, 48, 206) 0%, rgba(41, 38, 206, 0.604) 80%, rgba(0,212,255,0) 100%);
+    border-bottom: none;
 }
 
-section.faq-title-section h1 {
-    margin-left: 20px;
-    font-size: 50px;
+div.result-card section.result .result-score span:first-child {
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
 }
 
-section.content-container .questions-container:not(:last-child) {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--page-background);
-}
-
-section.content-container .questions-container h2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: inherit;
-    font-weight: 600;
-}
-
-section.content-container .questions-container h2 span {
-    position: relative;
-}
-
-section.content-container .questions-container .answer.show {
-    display: block;
-}
-
-section.content-container .questions-container h2 span img {
-    position: relative;
-    margin-left: 10px;
-    display: block;
-    cursor: pointer;
-    background-color: var(--faq-container);
-}
-
-section.content-container .questions-container h2 span img.hide {
-    opacity: 0;
-}
-
-section.content-container .questions-container h2 span:before {
-    content: url(./assets/images/icon-minus.svg);
-    position: absolute;
-    left: 10px;
-}
-
-section.content-container .questions-container p {
-    display: none;
-    margin-top: 20px;
-    line-height: 1.5;
+div.result-card section.result .result-score span:last-child {
+    font-size: 14px;
     font-weight: 400;
-    color: var(--card-shadow);
 }
 
-.attribution { font-size: 11px; text-align: center; margin-top: 50px}
+div.result-card section.result .result-grade {
+    color: white;
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+div.result-card section.result .result-grade-text {
+    text-align: center;
+    font-size: 17px;
+}
+
+div.result-card section.summary {
+    padding: 30px;
+    flex: 1;
+}
+
+div.result-card section.summary h2 {
+    margin-bottom: 25px;
+    color: var(--button-background);
+}
+
+div.result-card section.summary .summary-badge {
+    display: flex;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+div.result-card section.summary .summary-badge p:last-child strong {
+    color: var(--button-background);
+}
+
+div.result-card section.summary .summary-badge .skills {
+    display: flex;
+    margin-right: auto;
+}
+
+div.result-card section.summary .summary-badge .skills img {
+    width: 15px;
+    margin-right: 7px;
+}
+
+div.result-card section.summary .summary-badge .skills p{
+    font-size: 17px;
+}
+
+div.result-card section.summary button {
+    margin-top: 25px;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--button-background);
+    color: var(--white-background);
+    cursor: pointer;
+}
+
+div.result-card section.summary .summary-badge:not(:last-of-type) {
+    margin-bottom: 15px;
+}
+
+div.result-card section.summary .summary-badge:nth-child(2) {
+    background-color: var(--background-badge-1);
+}
+
+div.result-card section.summary .summary-badge:nth-child(2) .skills {
+    color: var(--light-red);
+}
+
+div.result-card section.summary .summary-badge:nth-child(3) {
+    background-color: var(--background-badge-2);
+}
+
+div.result-card section.summary .summary-badge:nth-child(3) .skills {
+    color: var(--light-orangey);
+}
+
+div.result-card section.summary .summary-badge:nth-child(4) {
+    background-color: var(--background-badge-3);
+}
+
+div.result-card section.summary .summary-badge:nth-child(4) .skills {
+    color: var(--light-green);
+}
+
+div.result-card section.summary .summary-badge:nth-child(5) {
+    background-color: var(--background-badge-4);
+}
+
+div.result-card section.summary .summary-badge:nth-child(5) .skills {
+    color: var(--light-blue);
+}
+
+.attribution { font-size: 11px; text-align: center; margin-top: 50px;}
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media screen and (max-width: 700px) {
+    div.result-card {
+        flex-direction: column;
+        margin: 30px;
+    }
+}
